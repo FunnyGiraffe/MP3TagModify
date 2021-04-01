@@ -1,0 +1,16 @@
+import os, eyed3
+
+files = os.listdir(os.getcwd())
+i = 0
+for f in files:
+    audiofile = eyed3.load(f)
+    audiofile.tag.album = "LettersSong"
+    audiofile.tag.save()
+    if len(audiofile.tag.album) != 0 :
+        print(audiofile.tag.album)
+    else:
+        print(i)
+    i = i + 1
+print(i)
+
+print("Done!")
